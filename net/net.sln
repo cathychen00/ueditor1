@@ -3,20 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "http://localhost:9999", "http://localhost:9999", "{01C8A210-9EA8-4CD2-93C0-0E552B942EC9}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "http://www.myeditor.com", "http://www.myeditor.com", "{D3A150DB-993F-4DEB-9BDA-AE032B5E9A90}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "false"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_9999"
+		Debug.AspNetCompiler.VirtualPath = "/www.myeditor.com"
 		Debug.AspNetCompiler.PhysicalPath = "..\..\ueditor1\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9999\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\www.myeditor.com\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_9999"
+		Release.AspNetCompiler.VirtualPath = "/www.myeditor.com"
 		Release.AspNetCompiler.PhysicalPath = "..\..\ueditor1\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9999\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\www.myeditor.com\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
@@ -24,7 +24,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "http://localhost:9999", "ht
 		SlnRelativePath = "..\..\ueditor1\"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "net", "http://localhost:9999/net", "{47417F2E-7092-45E7-BF31-5A5047774F96}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "net", "http://www.myeditor.com/net", "{B4A51C86-BACC-4FD2-88FF-865D9CD6F5C0}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "false"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
@@ -50,10 +50,10 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{01C8A210-9EA8-4CD2-93C0-0E552B942EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01C8A210-9EA8-4CD2-93C0-0E552B942EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47417F2E-7092-45E7-BF31-5A5047774F96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47417F2E-7092-45E7-BF31-5A5047774F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A150DB-993F-4DEB-9BDA-AE032B5E9A90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A150DB-993F-4DEB-9BDA-AE032B5E9A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4A51C86-BACC-4FD2-88FF-865D9CD6F5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4A51C86-BACC-4FD2-88FF-865D9CD6F5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
