@@ -24750,7 +24750,14 @@ UE.plugin.register('insertfile', function (){
     }
 });
 
-
+    //自定义按钮
+UE.commands['mybtn1'] = {
+    execCommand: function (cmdName, align) {
+        var range = this.selection.getRange();
+        this.execCommand('inserthtml', '<p>hello mybtn1</p>');
+        return true;
+    },
+};
 
 
 // ui/ui.js
@@ -27695,7 +27702,7 @@ UE.ui = baidu.editor.ui = {};
         'blockquote', 'pasteplain', 'pagebreak',
         'selectall', 'print','horizontal', 'removeformat', 'time', 'date', 'unlink',
         'insertparagraphbeforetable', 'insertrow', 'insertcol', 'mergeright', 'mergedown', 'deleterow',
-        'deletecol', 'splittorows', 'splittocols', 'splittocells', 'mergecells', 'deletetable', 'drafts'];
+        'deletecol', 'splittorows', 'splittocols', 'splittocells', 'mergecells', 'deletetable', 'drafts', 'mybtn1'];
 
     for (var i = 0, ci; ci = btnCmds[i++];) {
         ci = ci.toLowerCase();
