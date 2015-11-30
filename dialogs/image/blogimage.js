@@ -355,6 +355,12 @@
                 });
 
                 $li.insertBefore($filePickerBlock);
+
+                //添加文件后自动上传
+                clickUpload = function () {
+                    $upload.click();
+                }
+                setTimeout("clickUpload()", 200);
             }
 
             // 负责view的销毁
