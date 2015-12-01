@@ -1,4 +1,6 @@
-﻿/*!
+﻿
+
+/*!
  * UEditor
  * version: ueditor
  * build: Tue Aug 25 2015 15:28:21 GMT+0800 (CST)
@@ -10171,7 +10173,6 @@ UE.plugins['defaultfilter'] = function () {
     });
 };
 
-
 // plugins/inserthtml.js
 /**
  * 插入html字符串插件
@@ -17595,28 +17596,28 @@ UE.plugins['video'] = function (){
      * @param toEmbed 是否以flash代替显示
      * @param addParagraph  是否需要添加P 标签
      */
-    function creatInsertStr(url,width,height,id,align,classname,type){
-        var str;
-        switch (type){
-            case 'image':
-                str = '<img ' + (id ? 'id="' + id+'"' : '') + ' width="'+ width +'" height="' + height + '" _url="'+url+'" class="' + classname.replace(/\bvideo-js\b/, '') + '"'  +
-                    ' src="' + me.options.UEDITOR_HOME_URL+'themes/default/images/spacer.gif" style="background:url('+me.options.UEDITOR_HOME_URL+'themes/default/images/videologo.gif) no-repeat center center; border:1px solid gray;'+(align ? 'float:' + align + ';': '')+'" />'
-                break;
-            case 'embed':
-                str = '<embed type="application/x-shockwave-flash" class="' + classname + '" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
-                    ' src="' +  utils.html(url) + '" width="' + width  + '" height="' + height  + '"'  + (align ? ' style="float:' + align + '"': '') +
-                    ' wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" >';
-                break;
-            case 'video':
-                var ext = url.substr(url.lastIndexOf('.') + 1);
-                if(ext == 'ogv') ext = 'ogg';
-                str = '<video' + (id ? ' id="' + id + '"' : '') + ' class="' + classname + ' video-js" ' + (align ? ' style="float:' + align + '"': '') +
-                    ' controls preload="none" width="' + width + '" height="' + height + '" src="' + url + '" data-setup="{}">' +
-                    '<source src="' + url + '" type="video/' + ext + '" /></video>';
-                break;
-        }
-        return str;
-    }
+    //function creatInsertStr(url,width,height,id,align,classname,type){
+    //    var str;
+    //    switch (type){
+    //        case 'image':
+    //            str = '<img ' + (id ? 'id="' + id+'"' : '') + ' width="'+ width +'" height="' + height + '" _url="'+url+'" class="' + classname.replace(/\bvideo-js\b/, '') + '"'  +
+    //                ' src="' + me.options.UEDITOR_HOME_URL+'themes/default/images/spacer.gif" style="background:url('+me.options.UEDITOR_HOME_URL+'themes/default/images/videologo.gif) no-repeat center center; border:1px solid gray;'+(align ? 'float:' + align + ';': '')+'" />'
+    //            break;
+    //        case 'embed':
+    //            str = '<embed type="application/x-shockwave-flash" class="' + classname + '" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
+    //                ' src="' +  utils.html(url) + '" width="' + width  + '" height="' + height  + '"'  + (align ? ' style="float:' + align + '"': '') +
+    //                ' wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" >';
+    //            break;
+    //        case 'video':
+    //            var ext = url.substr(url.lastIndexOf('.') + 1);
+    //            if(ext == 'ogv') ext = 'ogg';
+    //            str = '<video' + (id ? ' id="' + id + '"' : '') + ' class="' + classname + ' video-js" ' + (align ? ' style="float:' + align + '"': '') +
+    //                ' controls preload="none" width="' + width + '" height="' + height + '" src="' + url + '" data-setup="{}">' +
+    //                '<source src="' + url + '" type="video/' + ext + '" /></video>';
+    //            break;
+    //    }
+    //    return str;
+    //}
 
     function switchImgAndVideo(root,img2video){
         utils.each(root.getNodesByTagName(img2video ? 'img' : 'embed video'),function(node){
@@ -17705,31 +17706,59 @@ UE.plugins['video'] = function (){
      * editor.queryCommandState( 'insertvideo' );
      * ```
      */
-    me.commands["insertvideo"] = {
-        execCommand: function (cmd, videoObjs, type){
-            videoObjs = utils.isArray(videoObjs)?videoObjs:[videoObjs];
-            var html = [],id = 'tmpVedio', cl;
-            for(var i=0,vi,len = videoObjs.length;i<len;i++){
+    //me.commands["insertvideo"] = {
+    //    execCommand: function (cmd, videoObjs, type){
+    //        videoObjs = utils.isArray(videoObjs)?videoObjs:[videoObjs];
+    //        var html = [],id = 'tmpVedio', cl;
+    //        for(var i=0,vi,len = videoObjs.length;i<len;i++){
+    //            vi = videoObjs[i];
+    //            cl = (type == 'upload' ? 'edui-upload-video video-js vjs-default-skin':'edui-faked-video');
+    //            html.push(creatInsertStr( vi.url, vi.width || 420,  vi.height || 280, id + i, null, cl, 'image'));
+    //        }
+    //        me.execCommand("inserthtml",html.join(""),true);
+    //        var rng = this.selection.getRange();
+    //        for(var i= 0,len=videoObjs.length;i<len;i++){
+    //            var img = this.document.getElementById('tmpVedio'+i);
+    //            domUtils.removeAttributes(img,'id');
+    //            rng.selectNode(img).select();
+    //            me.execCommand('imagefloat',videoObjs[i].align)
+    //        }
+    //    },
+    //    queryCommandState : function(){
+    //        var img = me.selection.getRange().getClosedNode(),
+    //            flag = img && (img.className == "edui-faked-video" || img.className.indexOf("edui-upload-video")!=-1);
+    //        return flag ? 1 : 0;
+    //    }
+    //};
+
+    function creatInsertStr(url, width, height, align, toEmbed, addParagraph) {
+
+        return !toEmbed ?
+                (addParagraph ? ('<p ' + (align != "none" ? (align == "center" ? ' style="text-align:center;" ' : ' style="float:"' + align) : '') + '>') : '') +
+                '<img align="' + align + '" width="' + width + '" height="' + height + '" _url="' + url + '" class="edui-faked-video"' +
+                ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/images/spacer.gif" style="background:url(' + me.options.UEDITOR_HOME_URL + 'themes/default/images/videologo.gif) no-repeat center center; border:1px solid gray;" />' +
+                (addParagraph ? '</p>' : '')
+                : v.preparing(url, width, height, me, align);
+    }
+
+       me.commands["insertvideo"] = {
+        execCommand: function (cmd, videoObjs) {
+            videoObjs = utils.isArray(videoObjs) ? videoObjs : [videoObjs];
+            var html = [];
+            for (var i = 0, vi, len = videoObjs.length; i < len; i++) {
                 vi = videoObjs[i];
-                cl = (type == 'upload' ? 'edui-upload-video video-js vjs-default-skin':'edui-faked-video');
-                html.push(creatInsertStr( vi.url, vi.width || 420,  vi.height || 280, id + i, null, cl, 'image'));
+                html.push(creatInsertStr(vi.url, vi.width || 420, vi.height || 280, vi.align || "none", true, true));
             }
-            me.execCommand("inserthtml",html.join(""),true);
-            var rng = this.selection.getRange();
-            for(var i= 0,len=videoObjs.length;i<len;i++){
-                var img = this.document.getElementById('tmpVedio'+i);
-                domUtils.removeAttributes(img,'id');
-                rng.selectNode(img).select();
-                me.execCommand('imagefloat',videoObjs[i].align)
-            }
+            me.execCommand("inserthtml", html.join(""));
         },
-        queryCommandState : function(){
+        queryCommandState: function () {
             var img = me.selection.getRange().getClosedNode(),
-                flag = img && (img.className == "edui-faked-video" || img.className.indexOf("edui-upload-video")!=-1);
-            return flag ? 1 : 0;
+                flag = img && (img.className == "edui-faked-video");
+            return this.highlight ? -1 : (flag ? 1 : 0);
         }
-    };
+    }
 };
+
 
 // plugins/table.core.js
 /**
@@ -27677,7 +27706,8 @@ UE.ui = baidu.editor.ui = {};
         'searchreplace':'~/dialogs/searchreplace/searchreplace.html',
         'map':'~/dialogs/map/map.html',
         'gmap':'~/dialogs/gmap/gmap.html',
-        'insertvideo':'~/dialogs/video/video.html',
+        'insertvideo': '~/dialogs/video/video.html',
+        'mydialog1': '~/dialogs/video1/video.html',
         'help':'~/dialogs/help/help.html',
         'preview':'~/dialogs/preview/preview.html',
         'emotion':'~/dialogs/emotion/emotion.html',
@@ -27821,7 +27851,7 @@ UE.ui = baidu.editor.ui = {};
     var dialogBtns = {
         noOk:['searchreplace', 'help', 'spechars', 'webapp','preview'],
         ok:['attachment', 'anchor', 'link', 'insertimage', 'map', 'gmap', 'insertframe', 'wordimage',
-            'insertvideo', 'insertframe', 'edittip', 'edittable', 'edittd', 'scrawl', 'template', 'music', 'background', 'charts']
+            'insertvideo', 'insertframe', 'edittip', 'edittable', 'edittd', 'scrawl', 'template', 'music', 'background', 'charts', 'mydialog1']
     };
 
     for (var p in dialogBtns) {

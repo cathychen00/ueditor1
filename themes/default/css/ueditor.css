@@ -1901,3 +1901,9 @@ div.edui-box {
 .edui-default  .edui-pastecontainer .edui-button  .edui-state-hover .edui-plaintxticon{
     background-position: -72px -34px;
 }
+/*×Ô¶¨Òåµ¯´°*/
+.edui-for-mydialog1 .edui-dialog-content {
+            width: 490px; 
+            height: 180px;  
+            overflow: hidden;
+        }
